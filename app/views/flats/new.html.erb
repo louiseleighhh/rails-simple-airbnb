@@ -1,0 +1,35 @@
+<div class = "container">
+<div class="card mt-3 p-5">
+<h1>Add a Flat</h1>
+<%= simple_form_for @flat do |f| %>
+  <div class="row">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="row">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="row">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="row">
+    <%= f.label :number_of_guests %>
+    <%= f.text_field :number_of_guests %>
+  </div>
+  <div class="row">
+    <%= f.label :price_per_night %>
+    <%= f.text_field :price_per_night %>
+  </div>
+  <div class="row">
+    <%= f.label :picture_url %>
+    <%= f.text_field :picture_url %>
+  </div>
+  <div class="row mt-3">
+  <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to "Go Back", flats_path, class: "link-primary mt-3" %>
+</div>
+</div>

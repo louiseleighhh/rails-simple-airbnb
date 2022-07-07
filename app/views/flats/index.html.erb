@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light bg-light px-3">
+  <span class="navbar-brand mb-0 h1">Simple Airbnb</span>
+  <div class="right-side">
+    <form>
+    <input type="search" id="search" name="query" placeholder="Search our flats..."><br><br>
+    </form>
+    <button type="submit" form="form1" value="Submit">Submit</button>
+    <span><%= link_to "Add Flat", new_flat_path, class: "btn btn-outline-primary", type: "button" %></span>
+  </div>
+</nav>
+<div class = "container">
+  <h1>All our Flats (<%=  @flats.count %>)</h1>
+  <div class = "fake-row" style="display: flex; align-items: center; justify-content: space-between">
+    <% @flats.each do |flat| %>
+      <div class="card" style="width: 18rem; margin: 5px">
+        <img class="card-img-top" src="<%= flat.picture_url %>" alt="Card image cap">
+        <div class="card-header">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.address%></p>
+          <%= flat.number_of_guests%>
+          <i class="fa-solid fa-user-group"></i>
+          <%= flat.price_per_night%>
+          <i class="fa-solid fa-euro-sign"></i>
+        </div>
+        <div class="card-body">
+        <%= link_to "More Info", flat_path(flat), class: "link-primary"%>
+        <%= link_to "Edit", edit_flat_path(flat), class: "link-warning"%>
+        <%= link_to "Delete", flat_path(flat), method: :delete, data: {confirm: "Are you sure?"}, class: "link-danger"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
